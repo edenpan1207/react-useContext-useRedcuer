@@ -13,8 +13,8 @@ export function LanguageStore(props) {
     dispatch({
       type: CHANGE_LANGUAGE,
       payload: language,
-    });
-  };
+    })
+  }
 
   return (
     <LanguageContext.Provider value={{ ...mainLanguage, changeLanguage }}>

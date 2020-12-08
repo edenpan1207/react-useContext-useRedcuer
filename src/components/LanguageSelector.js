@@ -1,26 +1,16 @@
-import React, { Component } from "react";
-import Context from "../contexts/languageContext";
+import React, { useContext } from "react";
+import LanguageContext from "../contexts/languageContext";
 
 function LanguageSelector() {
+  const context = useContext(LanguageContext);
+  const { changeLanguage } = context;
   return (
     <div>
       Select a language:
-      <Context.Consumer>
-        {({ changeLanguage }) => {
-          return (
-            <>
-              <i
-                className="flag us"
-                onClick={() => changeLanguage("english")}
-              />
-              <i
-                className="flag tw"
-                onClick={() => changeLanguage("chinese")}
-              />
-            </>
-          );
-        }}
-      </Context.Consumer>
+      <>
+        <i className="flag us" onClick={() => changeLanguage("english")} />
+        <i className="flag tw" onClick={() => changeLanguage("chinese")} />
+      </>
     </div>
   );
 }
